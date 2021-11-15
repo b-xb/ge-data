@@ -31,6 +31,13 @@ It is very simple at the moment but I may well add in more features in the futur
   - Include more data from previous years
 
 ## Project setup
+
+You will need to have [Node.js](https://nodejs.org/en/) installed on your local computer in order to run this application locally.
+
+I recommended installing [NVM](https://github.com/nvm-sh/nvm), or similar, to manage multiple versions of node on the same computer and then installing the most recent LTS version of node.
+
+### Install dependencies
+
 ```
 npm install
 ```
