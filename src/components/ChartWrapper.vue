@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import LineChart from './Chart.js'
+import LineChart from './Chart.vue'
 import * as d3 from 'd3'
 
 export default {
