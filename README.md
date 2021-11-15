@@ -1,5 +1,9 @@
 # ge-data
 
+## DEMO
+
+Visit [https://b-xb.github.io/ge-data/](https://b-xb.github.io/ge-data/) to see the visualiser working.
+
 ## Project setup
 ```
 npm install
