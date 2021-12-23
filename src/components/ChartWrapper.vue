@@ -33,7 +33,29 @@ export default {
       options: {
         legend: {
             display:false
-        }
+        },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Constituency vote %'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Year of UK General Election'
+            }
+          }],
+        },
+        tooltips: {
+          callbacks: {
+            label: (tooltipItem,data) =>
+              tooltipItem && data ?
+                `${data.datasets[tooltipItem.datasetIndex].label}: ${tooltipItem.yLabel}%`:
+                ''
+          },
+        },
       },
       party: "labour",
       cols: {
