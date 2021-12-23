@@ -21,10 +21,12 @@ import LineChart from './Chart.vue'
 import * as d3 from 'd3'
 
 export default {
+
   name: 'ChartWrapper',
   components: {
     LineChart
   },
+
   data () {
     return {
       datacollection: {},
@@ -58,14 +60,16 @@ export default {
       dataSource: {},
     }
   },
+
   mounted () {
     this.loadData()
   },
+
   methods: {
     loadData () {
       d3.csv("data.csv").then((geData) => {
         this.dataSource = geData;
-      }).then(this.fillData);
+      }).then(this.fillData)
     },
     fillData () {
       this.datacollection = {
@@ -80,6 +84,7 @@ export default {
       }
     }
   },
+
   watch: {
     party() {
       this.fillData();
