@@ -36,6 +36,10 @@ export default {
         },
         scales: {
           yAxes: [{
+            ticks:{
+              min:0,
+              max:100
+            },
             scaleLabel: {
               display: true,
               labelString: 'Constituency vote %'
