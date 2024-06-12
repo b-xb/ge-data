@@ -9,8 +9,8 @@
         <option value="snp">SNP</option>
         <option value="libdems">LibDems</option>
         <option value="ukip">UKIP</option>
-        <!--<option value="brexit">UKIP/Brexit Party</option>-->
-        <!--<option value="toriesxbrexit">Tories + UKIP/BP</option>-->
+        <option value="brexit">UKIP/Brexit Party</option>
+        <option value="toriesxbrexit">Tories + UKIP/BP</option>
       </select>
     </div>
   </div>
@@ -59,11 +59,13 @@ export default {
       },
       party: "labour",
       cols: {
-        labour: ["Lab 2015","Lab 2017","Lab"],
-        tories: ["Con 2015","Con 2017","Con"],
-        snp: ["SNP 2015","SNP 2017","SNP"],
-        libdems: ["LDem 2015","LDem 2017","LDem"],
-        ukip: ["UKIP 2015","UKIP 2017","UKIP"]
+        labour: [["Lab 2015"],["Lab 2017"],["Lab"]],
+        tories: [["Con 2015"],["Con 2017"],["Con"]],
+        snp: [["SNP 2015"],["SNP 2017"],["SNP"]],
+        libdems: [["LDem 2015"],["LDem 2017"],["LDem"]],
+        ukip: [["UKIP 2015"],["UKIP 2017"],["UKIP"]],
+        brexit: [["UKIP 2015"],["UKIP 2017"],["UKIP","Brex"]],
+        toriesxbrexit: [["Con 2015","UKIP 2015"],["Con 2017","UKIP 2017"],["Con","UKIP","Brex"]],
       },
       bgColor: {
         labour: "rgb(255,0,0)",
@@ -71,6 +73,8 @@ export default {
         snp: "rgb(255,226,0)",
         libdems: "rgb(255,174,66)",
         ukip: "rgb(162,40,255)",
+        brexit: "rgb(66,227,245)",
+        toriesxbrexit: "rgb(93,66,245)",
       },
       lineColor: {
         labour: "rgba(255,0,0,0.1)",
@@ -78,6 +82,8 @@ export default {
         snp: "rgba(255,226,0,0.4)",
         libdems: "rgba(255,174,66,0.1)",
         ukip: "rgba(162,40,255,0.1)",
+        brexit: "rgba(66,227,245,0.1)",
+        toriesxbrexit: "rgba(93,66,245,0.1)",
       },
       dataSource: {},
     }
@@ -101,7 +107,9 @@ export default {
           backgroundColor: this.bgColor[this.party],
           borderColor: this.lineColor[this.party],
           fill: false,
-          data: this.cols[this.party].map((col) => constituency[col])
+          data: this.cols[this.party].map((cols) =>
+            cols.reduce((colSum, col) => colSum + parseFloat(constituency[col]),0)
+          )
         }))
       }
     }
